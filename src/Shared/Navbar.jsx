@@ -1,8 +1,15 @@
-import { NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 // import logo from "logo.JPG";
-import logo from "../../public/images/logo.png"
+import logo from "/images/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
   const navLink = (
     <>
       <li className="capitalize font-medium text-[#0F2239] text-base">
@@ -23,11 +30,6 @@ const Navbar = () => {
           Blogs
         </NavLink>
       </li>
-      <li className="capitalize font-medium text-[#0F2239] text-base">
-        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")} to="/login">
-          Login
-        </NavLink>
-      </li>
     </>
   );
   return (
@@ -46,14 +48,50 @@ const Navbar = () => {
           </div>
           <NavLink to="/">
             <div className="flex gap-2">
-            <img className="w-9 object-contain" src={logo} alt="" />
-            <a className="text-3xl uppercase font-extrabold text-[#0d6efd]">Job Hunter</a>
+              <img className="w-9 object-contain" src={logo} alt="" />
+              <a className="text-3xl uppercase font-extrabold text-[#0d6efd]">Job Hunter</a>
             </div>
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex navbar-end">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>
           {/* <a className="btn">Button</a> */}
+          {user ? (
+            <>
+              {/* test  */}
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user.photoURL} />
+                  </div>
+                </label>
+                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <button onClick={handleSignOut}>Logout</button>
+                  </li>
+                </ul>
+              </div>
+              {/* test  */}
+            </>
+          ) : (
+            <div className="capitalize font-medium text-[#0F2239] text-base">
+              <NavLink
+                className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")}
+                to="/login"
+              >
+                Login
+              </NavLink>
+            </div>
+          )}
         </div>
         {/* <div className="navbar-end">
          
