@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+// import logo from "logo.JPG";
+import logo from "../../public/images/logo.png"
 
 const Navbar = () => {
   const navLink = (
@@ -42,7 +44,12 @@ const Navbar = () => {
               {navLink}
             </ul>
           </div>
-          <NavLink to="/"><a className="text-3xl uppercase font-extrabold text-[#0d6efd]">Job Hunter</a></NavLink>
+          <NavLink to="/">
+            <div className="flex gap-2">
+            <img className="w-9 object-contain" src={logo} alt="" />
+            <a className="text-3xl uppercase font-extrabold text-[#0d6efd]">Job Hunter</a>
+            </div>
+          </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex navbar-end">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>
