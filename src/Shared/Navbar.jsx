@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import logo from "logo.JPG";
 import logo from "/images/logo.png";
 import { useContext } from "react";
@@ -30,6 +30,36 @@ const Navbar = () => {
           Blogs
         </NavLink>
       </li>
+      {user ? (
+        <>
+          <li className="capitalize font-medium text-[#0F2239] text-base">
+            <NavLink
+              className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")}
+              to="/addJob"
+            >
+              Add a Job
+            </NavLink>
+          </li>
+          <li className="capitalize font-medium text-[#0F2239] text-base">
+            <NavLink
+              className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")}
+              to="/myJob"
+            >
+              My Jobs
+            </NavLink>
+          </li>
+          <li className="capitalize font-medium text-[#0F2239] text-base">
+            <NavLink
+              className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")}
+              to="/appliedJob"
+            >
+              Applied Job
+            </NavLink>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
   return (
