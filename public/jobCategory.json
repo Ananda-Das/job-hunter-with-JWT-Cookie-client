@@ -1,0 +1,79 @@
+[{
+    "JobListings": [
+      {
+        "NameWhoPosted": "John Doe",
+        "JobTitle": "Software Engineer",
+        "JobCategory": "On Site Job",
+        "JobPostingDate": "2023-11-05",
+        "ApplicationDeadline": "2023-12-05",
+        "SalaryRange": "$60,000 - $80,000",
+        "JobApplicantsNumber": 25
+      },
+      {
+        "NameWhoPosted": "Alice Smith",
+        "JobTitle": "Marketing Manager",
+        "JobCategory": "Remote Job",
+        "JobPostingDate": "2023-11-06",
+        "ApplicationDeadline": "2023-12-10",
+        "SalaryRange": "$70,000 - $90,000",
+        "JobApplicantsNumber": 30
+      },
+      {
+        "NameWhoPosted": "Ethan Johnson",
+        "JobTitle": "Data Analyst",
+        "JobCategory": "On Site Job",
+        "JobPostingDate": "2023-11-07",
+        "ApplicationDeadline": "2023-12-15",
+        "SalaryRange": "$55,000 - $75,000",
+        "JobApplicantsNumber": 20
+      },
+      {
+        "NameWhoPosted": "Olivia Brown",
+        "JobTitle": "Sales Representative",
+        "JobCategory": "Remote Job",
+        "JobPostingDate": "2023-11-08",
+        "ApplicationDeadline": "2023-12-20",
+        "SalaryRange": "$50,000 - $70,000",
+        "JobApplicantsNumber": 35
+      },
+      {
+        "NameWhoPosted": "James Wilson",
+        "JobTitle": "Graphic Designer",
+        "JobCategory": "Hybrid",
+        "JobPostingDate": "2023-11-09",
+        "ApplicationDeadline": "2023-12-25",
+        "SalaryRange": "$45,000 - $65,000",
+        "JobApplicantsNumber": 15
+      },
+      {
+        "NameWhoPosted": "Ava Lee",
+        "JobTitle": "Financial Analyst",
+        "JobCategory": "Part Time",
+        "JobPostingDate": "2023-11-10",
+        "ApplicationDeadline": "2023-12-30",
+        "SalaryRange": "$65,000 - $85,000",
+        "JobApplicantsNumber": 22
+      },
+      {
+        "NameWhoPosted": "Liam Davis",
+        "JobTitle": "Human Resources Manager",
+        "JobCategory": "Hybrid",
+        "JobPostingDate": "2023-11-11",
+        "ApplicationDeadline": "2024-01-05",
+        "SalaryRange": "$75,000 - $95,000",
+        "JobApplicantsNumber": 18
+      },
+      {
+        "NameWhoPosted": "Mia Martin",
+        "JobTitle": "Product Manager",
+        "JobCategory": "Part Time",
+        "JobPostingDate": "2023-11-12",
+        "ApplicationDeadline": "2024-01-10",
+        "SalaryRange": "$80,000 - $100,000",
+        "JobApplicantsNumber": 28
+      }
+    ]
+  }
+
+  
+]
