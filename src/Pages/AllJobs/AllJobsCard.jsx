@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const AllJobsCard = ({ job }) => {
-  const { title,userName, category, salary, deadline, postedDate,jobApplicant } = job;
+  const { _id, title, userName, category, salary, deadline, postedDate, jobApplicant } = job;
   return (
     <div>
       <div className="card-body">
@@ -31,7 +33,9 @@ const AllJobsCard = ({ job }) => {
           {jobApplicant}
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`${_id}`} >
+            <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>

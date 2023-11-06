@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import Error from "../Pages/Error/Error";
 import AddJobs from "../Pages/AddJobs/AddJobs";
 import MyJobs from "../Pages/Myjobs/MyJobs";
+import SingleJob from "../Pages/AllJobs/SingleJob";
 
 const Routes = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const Routes = createBrowserRouter([
       {
         path: "allJobs",
         element: <Alljobs></Alljobs>,
+        loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
+      },
+      {
+        path: "allJobs/:id",
+        element: <SingleJob></SingleJob>,
         loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
       },
       {
