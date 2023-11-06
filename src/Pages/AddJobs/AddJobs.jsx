@@ -15,6 +15,7 @@ const AddJobs = () => {
     const bannerUrl = form.get("bannerUrl");
     const title = form.get("title");
     const userName = user?.displayName;
+    const userEmail = user?.email;
     const category = form.get("category");
     const salary = form.get("salary");
     const deadline = form.get("deadline");
@@ -28,7 +29,7 @@ const AddJobs = () => {
 
     const jobApplicant = 0;
 
-    const jobs = { bannerUrl, title, userName, category, salary, deadline, description, postedDate, jobApplicant };
+    const jobs = { bannerUrl, title, userName, category, salary, deadline, description, postedDate, jobApplicant, userEmail };
 
     //send data to the server
     fetch("http://localhost:5000/api/v1/add/jobs", {
@@ -73,7 +74,7 @@ const AddJobs = () => {
             <input
               type="text"
               name="userName"
-              defaultValue={user.displayName}
+              defaultValue={user?.displayName}
               required
               id=""
               className="input input-bordered bg-[#F2F2F2] w-full"
