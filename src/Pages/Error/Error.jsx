@@ -3,7 +3,6 @@ import errorpic from '/images/error.png'
 
 const Error = () => {
   return (
-    <div>
       <div className="py-16 max-w-[1280px] mx-auto">
         <img className='max-w-[1280px] mx-auto' src={errorpic} alt="" />
         <h1 className="text-5xl text-center">Opps!!! Something Wrong</h1>
@@ -15,7 +14,6 @@ const Error = () => {
           </Link>
         </div>
       </div>
-    </div>
   );
 };
 

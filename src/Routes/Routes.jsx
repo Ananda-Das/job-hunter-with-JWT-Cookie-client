@@ -6,6 +6,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Error from "../Pages/Error/Error";
+import AddJobs from "../Pages/AddJobs/AddJobs";
 
 const Routes = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const Routes = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "addJob",
+        element: <AddJobs></AddJobs>,
       },
     ],
   },
