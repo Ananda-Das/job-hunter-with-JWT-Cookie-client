@@ -22,6 +22,7 @@ const Routes = createBrowserRouter([
       {
         path: "allJobs",
         element: <Alljobs></Alljobs>,
+        loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
       },
       {
         path: "blogs",

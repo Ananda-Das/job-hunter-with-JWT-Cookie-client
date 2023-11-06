@@ -10,6 +10,10 @@ const Row = ({job}) => {
         <td>{salary}</td>
         <td>{deadline}</td>
         <td>{jobApplicant}</td>
+        <th>
+          <button className="btn btn-neutral btn-xs mr-3">Update</button>
+          <button className="btn btn-error text-white btn-xs">Delete</button>
+        </th>
       </tr>
     );
 };

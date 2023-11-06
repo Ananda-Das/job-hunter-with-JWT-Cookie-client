@@ -27,6 +27,7 @@ const MyJobs = () => {
               <th>Salary</th>
               <th>DeadLine</th>
               <th>Applicant</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
