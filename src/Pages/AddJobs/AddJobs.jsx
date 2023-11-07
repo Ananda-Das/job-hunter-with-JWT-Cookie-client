@@ -12,25 +12,39 @@ const AddJobs = () => {
 
   const handleAddJob = (e) => {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const bannerUrl = form.get("bannerUrl");
-    const title = form.get("title");
+
+    const form = e.target;
+
+    const comName = form.comName.value;
+    const comimg = form.comimg.value;
+    const bannerUrl = form.bannerUrl.value;
+    const title = form.title.value;
+    const category = form.category.value;
+    const salary = form.salary.value;
+    const deadline = form.deadline.value;
+    const description = form.description.value;
+
+    // const comName = form.get("comName");
+    // const comimg = form.get("comimg");
+    // const bannerUrl = form.get("bannerUrl");
+    // const title = form.get("title");
     const userName = user?.displayName;
     const userEmail = user?.email;
-    const category = form.get("category");
-    const salary = form.get("salary");
-    const deadline = form.get("deadline");
-    const description = form.get("description");
+    // const category = form.get("category");
+    // const salary = form.get("salary");
+    // const deadline = form.get("deadline");
+    // const description = form.get("description");
     const today = new Date();
-    const day = String(today.getDate()).padStart(2, "0");
-    const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-based
-    const year = today.getFullYear();
+    // const day = String(today.getDate()).padStart(2, "0");
+    // const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+    // const year = today.getFullYear();
 
-    const postedDate = `${day}/${month}/${year}`;
+    // const postedDate = `${day}/${month}/${year}`;
+    const postedDate = today;
 
     const jobApplicant = 0;
 
-    const jobs = { bannerUrl, title, userName, category, salary, deadline, description, postedDate, jobApplicant, userEmail };
+    const jobs = { comName, comimg, bannerUrl, title, userName, category, salary, deadline, description, postedDate, jobApplicant, userEmail };
 
     //send data to the server
     fetch("http://localhost:5000/api/v1/add/jobs", {
@@ -50,7 +64,7 @@ const AddJobs = () => {
             icon: "success",
             confirmButtonText: "Okay",
           });
-          // form.reset();
+          form.reset();
           // alert('inserted');
         }
       });
@@ -63,6 +77,14 @@ const AddJobs = () => {
       <PageTitle title="JobHunter | AddJob"/>
       <h2 className="text-3xl font-bold text-center">Add A Job</h2>
       <form onSubmit={handleAddJob} className="card-body lg:w-9/12 md:h-3/4 mx-auto border my-5">
+        <div className="flex gap-3">
+          <div className="w-1/2">
+            <input type="text" name="comName" placeholder="Company Name" required id="" className="input input-bordered bg-[#F2F2F2] w-full" />
+          </div>
+          <div className="w-1/2">
+            <input type="text" name="comimg" placeholder="Company Img Url " className="input input-bordered bg-[#F2F2F2] w-full" id="" required />
+          </div>
+        </div>
         <div className="flex gap-3">
           <div className="w-1/2">
             <input type="text" name="bannerUrl" placeholder="Job Banner Url" required id="" className="input input-bordered bg-[#F2F2F2] w-full" />
@@ -101,9 +123,8 @@ const AddJobs = () => {
             <DatePicker
               placeholderText="DeadLine"
               className="input input-bordered bg-[#F2F2F2] w-full"
-              name="deadline"
+              name="deadline" required
               selected={selectDate}
-              dateFormat="dd/MM/yyyy"
               onChange={(date) => setSelectDate(date)}
               minDate={new Date()}
             ></DatePicker>
@@ -111,7 +132,7 @@ const AddJobs = () => {
         </div>
         <div className="">
           <div className="w-full">
-            <textarea className="textarea textarea-bordered bg-[#F2F2F2] w-full" placeholder="Job Description" name="description"></textarea>
+            <textarea className="textarea textarea-bordered bg-[#F2F2F2] w-full" placeholder="Job Description" name="description" required></textarea>
           </div>
         </div>
         <div className="form-control mt-6">

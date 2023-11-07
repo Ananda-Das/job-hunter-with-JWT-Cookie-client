@@ -58,14 +58,6 @@ const SingleJob = () => {
         .then((data) => {
           console.log(data);
           if (data.result.insertedId) {
-            // Swal.fire({
-            //   title: "Success",
-            //   text: "Successfuly Inserted",
-            //   icon: "success",
-            //   confirmButtonText: "Okay",
-            // });
-            // form.reset();
-            // alert('inserted');
             toast.success("Thank you for apply");
           }
         });
