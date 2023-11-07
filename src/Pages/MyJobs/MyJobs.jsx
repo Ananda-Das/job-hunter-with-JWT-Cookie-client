@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Row from "./Row";
+import PageTitle from "../../components/PageTitle";
 
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
@@ -15,6 +16,7 @@ const MyJobs = () => {
   }, [url]);
   return (
     <div>
+      <PageTitle title="JobHunter | MyJob"/>
       <h1 className="text-5xl text-center font-bold underline">Your Added Jobs: {myJobs.length}</h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra">

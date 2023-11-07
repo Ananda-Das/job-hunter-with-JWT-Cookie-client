@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import PageTitle from "../../components/PageTitle";
 
 const AddJobs = () => {
   const { user } = useContext(AuthContext);
@@ -59,6 +60,7 @@ const AddJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobHunter | AddJob"/>
       <h2 className="text-3xl font-bold text-center">Add A Job</h2>
       <form onSubmit={handleAddJob} className="card-body lg:w-9/12 md:h-3/4 mx-auto border my-5">
         <div className="flex gap-3">
