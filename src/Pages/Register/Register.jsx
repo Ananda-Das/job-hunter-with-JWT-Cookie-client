@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
+import PageTitle from "../../components/PageTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -67,6 +68,7 @@ const Register = () => {
   };
   return (
     <div>
+      <PageTitle title="JobHunter | Register"/>
       {/* Register-start */}
       <div>
         <h1 className="mx-auto mt-5 text-5xl text-center font-extrabold uppercase">

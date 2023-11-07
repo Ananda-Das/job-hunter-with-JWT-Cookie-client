@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import PageTitle from "../../components/PageTitle";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -43,6 +44,7 @@ const Login = () => {
   };
   return (
     <div>
+      <PageTitle title="JobHunter | Login"/>
       {/* login-start */}
       <div className="">
         <h1 className="mx-auto mt-5 text-5xl text-center font-extrabold uppercase">

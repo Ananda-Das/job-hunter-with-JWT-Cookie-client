@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const AllJobsCard = ({ job }) => {
   const { _id, title, userName, category, salary, deadline, postedDate, jobApplicant } = job;
   return (
-    <div>
-      <div className="card-body">
+    <div className="my-4">
+      <div className="card-body border-2 rounded-2xl">
         <h2 className="card-title">Job Title: {title}</h2>
         <p className="text-base">
           <span className="font-bold">Posted: </span>
