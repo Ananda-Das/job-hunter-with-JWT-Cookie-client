@@ -11,6 +11,8 @@ import MyJobs from "../Pages/Myjobs/MyJobs";
 import SingleJob from "../Pages/AllJobs/SingleJob";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import UpdateJobs from "../Pages/MyJobs/UpdateJobs";
+import PrivateRoutes from "./PrivateRoutes";
+import JobCartegory from "../Pages/Home/JobCartegory";
 
 const Routes = createBrowserRouter([
   {
@@ -29,8 +31,20 @@ const Routes = createBrowserRouter([
       },
       {
         path: "allJobs/:id",
-        element: <SingleJob></SingleJob>,
+        element: (
+          <PrivateRoutes>
+            <SingleJob></SingleJob>
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
+      },
+      {
+        path: "/:id",
+        element: (
+          <PrivateRoutes>
+            <JobCartegory></JobCartegory>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "blogs",
@@ -46,19 +60,35 @@ const Routes = createBrowserRouter([
       },
       {
         path: "addJob",
-        element: <AddJobs></AddJobs>,
+        element: (
+          <PrivateRoutes>
+            <AddJobs></AddJobs>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "updateJob",
-        element: <UpdateJobs></UpdateJobs>,
+        element: (
+          <PrivateRoutes>
+            <UpdateJobs></UpdateJobs>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "myJob",
-        element: <MyJobs></MyJobs>,
+        element: (
+          <PrivateRoutes>
+            <MyJobs></MyJobs>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "appliedJob",
-        element: <AppliedJobs></AppliedJobs>,
+        element: (
+          <PrivateRoutes>
+            <AppliedJobs></AppliedJobs>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

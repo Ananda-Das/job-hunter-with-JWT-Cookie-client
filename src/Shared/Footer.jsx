@@ -1,7 +1,9 @@
 // import React from 'react';
+import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
   return (
+    
     <div className="bg-[#0f2339] text-white max-w-[1280px] mx-auto">
       <footer className="footer p-10 ">
         <nav>
@@ -67,6 +69,7 @@ const Footer = () => {
           </p>
         </aside>
       </footer>
+      <ScrollToTop smooth width="40" />
     </div>
   );
 };
