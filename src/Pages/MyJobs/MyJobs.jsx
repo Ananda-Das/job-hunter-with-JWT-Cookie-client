@@ -1,7 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Row from "./Row";
 import PageTitle from "../../components/PageTitle";
+import { useQuery } from "@tanstack/react-query";
+// import { useParams } from "react-router-dom";
 // import { useQuery } from "@tanstack/react-query";
 // import axios from "axios";
 
@@ -10,28 +12,35 @@ const MyJobs = () => {
 
   const [myJobs, setMyJobs] = useState([]);
 
+  // const { id } = useParams();
+
+  // const JobsDetails = cartInfo.filter((cartInfo) => cartInfo.user === user);
+
+  const [myJobsDetails, setMyJobsDetails] = useState(myJobs);
+
+  // console.log(myJobs);
+
   const url = `http://localhost:5000/api/v1/my/jobs?userEmail=${user?.email}`;
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMyJobs(data));
-  }, [url]);
+  // useEffect(() => {
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => setMyJobs(data));
+  // }, [url]);
 
   // Queries
-  // const { data } = useQuery({
-  //   queryKey: ["jobs"],
-  //   queryFn: async () => {
-  //     const data = await fetch(url);
-  //     return await data.json();
-  //   },
-  // });
-  // console.log(data);
-  
+  const { data = [], refetch } = useQuery({
+    queryKey: ["jobs", user?.email],
+    queryFn: async () => {
+      const data = await fetch(url);
+      return await data.json();
+    },
+  });
+  console.log(data);
 
   return (
     <div>
       <PageTitle title="JobHunter | MyJob" />
-      <h1 className="text-5xl text-center font-bold underline">Your Added Jobs: {myJobs.length}</h1>
+      <h1 className="text-5xl text-center font-bold underline">Your Added Jobs: {data.length}</h1>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}
@@ -46,8 +55,8 @@ const MyJobs = () => {
             </tr>
           </thead>
           <tbody>
-            {myJobs.map((job) => (
-              <Row key={job._id} job={job}></Row>
+            {data.map((job) => (
+              <Row key={job._id} job={job} refetch={refetch} myJobsDetails={myJobsDetails} setMyJobsDetails={setMyJobsDetails}></Row>
             ))}
           </tbody>
         </table>

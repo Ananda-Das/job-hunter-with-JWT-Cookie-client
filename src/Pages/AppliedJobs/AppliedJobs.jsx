@@ -9,12 +9,30 @@ const AppliedJobs = () => {
 
   const [appliedJobs, setAppliedJobs] = useState([]);
 
+  const [alljobs, setAllJobs] = useState([]);
+
   const url = `http://localhost:5000/api/v1/my/applied/jobs?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAppliedJobs(data));
   }, [url]);
+
+  //for all jobs 
+  useEffect(()=>{
+    fetch('http://localhost:5000/api/v1/all/jobs')
+    .then(res=>res.json())
+    .then(data=>setAllJobs(data))
+  },[])
+
+  console.log(alljobs.map(alljob=> {
+    if(alljob._id===appliedJobs._id){
+      console.log('object');
+    }
+  }));
+
+  // const singleJob = alljobs.filter()
+
   // Queries
   //   const { data } = useQuery({
   //     queryKey: ["jobs"],
