@@ -20,7 +20,7 @@ const MyJobs = () => {
 
   // console.log(myJobs);
 
-  const url = `http://localhost:5000/api/v1/my/jobs?userEmail=${user?.email}`;
+  const url = `https://job-hunter-server-nine.vercel.app/api/v1/my/jobs?userEmail=${user?.email}`;
   // useEffect(() => {
   //   fetch(url)
   //     .then((res) => res.json())

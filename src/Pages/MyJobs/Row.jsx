@@ -19,7 +19,7 @@ const Row = ({ job, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/api/v1/jobs/${_id}`, {
+        fetch(`https://job-hunter-server-nine.vercel.app/api/v1/jobs/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

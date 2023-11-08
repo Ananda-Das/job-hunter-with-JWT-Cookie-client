@@ -55,7 +55,7 @@ const SingleJob = () => {
       toast.error("Sorry Application Deadline is Over");
     } else {
       //send data to the server
-      fetch(`http://localhost:5000/api/v1/apply/jobs/${id}`, {
+      fetch(`https://job-hunter-server-nine.vercel.app/api/v1/apply/jobs/${id}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

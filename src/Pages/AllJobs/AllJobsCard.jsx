@@ -24,7 +24,7 @@ const AllJobsCard = ({ job }) => {
           </div>
           <div className="ml-[125px]">
             {/* <button className="btn btn-info">Details</button> */}
-            <Link to={`${_id}`} >
+            <Link to={`/job/${_id}`} >
             <button className="btn btn-info">Details</button>
           </Link>
           </div>

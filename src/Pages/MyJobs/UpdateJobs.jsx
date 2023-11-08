@@ -50,8 +50,8 @@ const UpdateJobs = () => {
 
     const updateJob = { comName, comimg, bannerUrl, title, category, salary, deadline, description };
 
-    //send data to the server http://localhost:5000/api/v1/job/update/654a6fcf9da4c6aef46246e5
-    fetch(`http://localhost:5000/api/v1/job/update/${_id}`, {
+    //send data to the server https://job-hunter-server-nine.vercel.app/api/v1/job/update/654a6fcf9da4c6aef46246e5
+    fetch(`https://job-hunter-server-nine.vercel.app/api/v1/job/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

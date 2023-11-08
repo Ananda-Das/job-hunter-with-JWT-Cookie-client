@@ -12,7 +12,6 @@ import SingleJob from "../Pages/AllJobs/SingleJob";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import UpdateJobs from "../Pages/MyJobs/UpdateJobs";
 import PrivateRoutes from "./PrivateRoutes";
-import JobCartegory from "../Pages/Home/JobCartegory";
 
 const Routes = createBrowserRouter([
   {
@@ -27,24 +26,16 @@ const Routes = createBrowserRouter([
       {
         path: "allJobs",
         element: <Alljobs></Alljobs>,
-        loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
-      },
-      {
-        path: ":id",
-        element: (
-          <PrivateRoutes>
-            <SingleJob></SingleJob>
-          </PrivateRoutes>
-        ),
-        loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
+        loader: () => fetch("https://job-hunter-server-nine.vercel.app/api/v1/all/jobs"),
       },
       {
         path: "job/:id",
         element: (
           <PrivateRoutes>
-            <JobCartegory></JobCartegory>
+            <SingleJob></SingleJob>
           </PrivateRoutes>
         ),
+        loader: () => fetch("https://job-hunter-server-nine.vercel.app/api/v1/all/jobs"),
       },
       {
         path: "blogs",
@@ -73,7 +64,7 @@ const Routes = createBrowserRouter([
             <UpdateJobs></UpdateJobs>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/jobs/${params.id}`),
+        loader: ({ params }) => fetch(`https://job-hunter-server-nine.vercel.app/api/v1/jobs/${params.id}`),
       },
       {
         path: "myJob",

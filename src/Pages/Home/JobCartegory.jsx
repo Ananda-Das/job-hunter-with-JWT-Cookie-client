@@ -11,7 +11,7 @@ const JobCartegory = () => {
   const [jobs, setjobs] = useState([]);
   const [displayJobs, setDisplayJobs] = useState([]);
 
-  const url = "http://localhost:5000/api/v1/all/jobs";
+  const url = "https://job-hunter-server-nine.vercel.app/api/v1/all/jobs";
   useEffect(() => {
     // fetch(url)
     //   .then((res) => res.json())

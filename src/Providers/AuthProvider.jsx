@@ -51,11 +51,11 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       //token
       if (currentUser) {
-        axios.post("http://localhost:5000/jwt", loggedUserEmail, { withCredentials: true }).then((res) => {
+        axios.post("https://job-hunter-server-nine.vercel.app/jwt", loggedUserEmail, { withCredentials: true }).then((res) => {
           console.log("token res", res.data);
         });
       } else {
-        axios.post("http://localhost:5000/logout", loggedUserEmail, { withCredentials: true }).then((res) => {
+        axios.post("https://job-hunter-server-nine.vercel.app/logout", loggedUserEmail, { withCredentials: true }).then((res) => {
           console.log(res.data);
         });
       }

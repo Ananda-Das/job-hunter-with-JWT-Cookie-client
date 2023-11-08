@@ -47,7 +47,7 @@ const AddJobs = () => {
     const jobs = { comName, comimg, bannerUrl, title, userName, category, salary, deadline, description, postedDate, jobApplicant, userEmail };
 
     //send data to the server
-    fetch("http://localhost:5000/api/v1/add/jobs", {
+    fetch("https://job-hunter-server-nine.vercel.app/api/v1/add/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
