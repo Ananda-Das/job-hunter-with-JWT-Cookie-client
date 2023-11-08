@@ -15,7 +15,7 @@ const SingleJob = () => {
 
   const singleJobDetails = jobDetials.find((jobDetials) => jobDetials._id === id);
 
-  const { bannerUrl, title, userName, category, salary, deadline, description, userEmail, jobApplicant } = singleJobDetails;
+  const { comName, bannerUrl, title, userName, category, salary, deadline, description, userEmail, jobApplicant } = singleJobDetails;
 
   const handleApply = (e) => {
     // e.preventDefault();
@@ -23,10 +23,16 @@ const SingleJob = () => {
     const name = user?.displayName;
     const email = user?.email;
     const jobId = id;
+    const comName = singleJobDetails?.comName;
+    const title = singleJobDetails?.title;
+    const category = singleJobDetails?.category;
+    const salary = singleJobDetails?.salary;
+    const jobApplicant = singleJobDetails?.jobApplicant;
+    
     // console.log(jobId);
     const cvlink = form.get("cvlink");
 
-    const applyjob = { name, email, cvlink, jobId };
+    const applyjob = { name, email, cvlink, jobId, comName, title, category, salary, jobApplicant };
 
     //check date
     const currentDate = Date.now();
@@ -63,7 +69,7 @@ const SingleJob = () => {
             toast.success("Thank you for apply");
           }
         });
-      
+
       console.log(applyjob);
     }
   };
@@ -76,6 +82,7 @@ const SingleJob = () => {
       <div className="w-3/4 mx-auto card-body bg-gray-100 rounded-2xl border-4 relative bottom-[100px]">
         <div className="flex justify-around items-center border-b-4 border-blue-400">
           <div className="card-body ">
+            <p>{comName}</p>
             <h1 className="text-3xl font-bold">{title}</h1>
             <h3>Job Posted By: {userName}</h3>
           </div>

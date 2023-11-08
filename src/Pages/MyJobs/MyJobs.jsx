@@ -41,7 +41,7 @@ const MyJobs = () => {
     <div>
       <PageTitle title="JobHunter | MyJob" />
       <h1 className="text-5xl text-center font-bold underline">Your Added Jobs: {data.length}</h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto my-10">
         <table className="table table-zebra">
           {/* head */}
           <thead>

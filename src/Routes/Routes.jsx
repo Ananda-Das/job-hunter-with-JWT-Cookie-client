@@ -30,7 +30,7 @@ const Routes = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
       },
       {
-        path: "allJobs/:id",
+        path: ":id",
         element: (
           <PrivateRoutes>
             <SingleJob></SingleJob>
@@ -39,7 +39,7 @@ const Routes = createBrowserRouter([
         loader: () => fetch("http://localhost:5000/api/v1/all/jobs"),
       },
       {
-        path: "/:id",
+        path: "job/:id",
         element: (
           <PrivateRoutes>
             <JobCartegory></JobCartegory>
