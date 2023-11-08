@@ -6,6 +6,7 @@ import Row from "./Row";
 import useAxiosHooks from "../../hooks/useAxiosHooks";
 // import { useQuery } from "@tanstack/react-query";
 import { usePDF } from "react-to-pdf";
+import { FaDownload } from 'react-icons/fa';
 
 const AppliedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -56,7 +57,7 @@ const AppliedJobs = () => {
       <div className="flex items-center justify-around mt-10">
         <div>
           <details className="dropdown mb-10">
-            <summary className="m-1 btn">Click Here To Search</summary>
+            <summary className="m-1 btn btn-info">Click Here To Search</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
               <li onClick={() => handleFilterJobs("all")}>
                 <a>All</a>
@@ -79,7 +80,7 @@ const AppliedJobs = () => {
         {/* for pdf test  */}
         <div>
           {/* <button>Download</button> */}
-          <button onClick={() => toPDF()}>Download PDF</button>
+          <button className="btn btn-warning mb-10" onClick={() => toPDF()}>Download PDF <span className="inline-block"><FaDownload></FaDownload></span> </button>
           {/* <div ref={targetRef}>Content to be generated to PDF</div> */}
         </div>
       </div>
