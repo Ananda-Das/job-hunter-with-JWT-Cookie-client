@@ -4,6 +4,7 @@ import PageTitle from "../../components/PageTitle";
 import About from "./About";
 import Banner from "./Banner";
 import JobCartegory from "./JobCartegory";
+import Testomonial from "./Testomonial";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner></Banner>
       <JobCartegory></JobCartegory>
       <About></About>
+      <Testomonial></Testomonial>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { useContext,  useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Row from "./Row";
 import PageTitle from "../../components/PageTitle";
@@ -10,13 +10,13 @@ import { useQuery } from "@tanstack/react-query";
 const MyJobs = () => {
   const { user } = useContext(AuthContext);
 
-  const [myJobs, setMyJobs] = useState([]);
+  // const [myJobs, setMyJobs] = useState([]);
 
   // const { id } = useParams();
 
   // const JobsDetails = cartInfo.filter((cartInfo) => cartInfo.user === user);
 
-  const [myJobsDetails, setMyJobsDetails] = useState(myJobs);
+  // const [myJobsDetails, setMyJobsDetails] = useState(myJobs);
 
   // console.log(myJobs);
 
@@ -56,7 +56,7 @@ const MyJobs = () => {
           </thead>
           <tbody>
             {data.map((job) => (
-              <Row key={job._id} job={job} refetch={refetch} myJobsDetails={myJobsDetails} setMyJobsDetails={setMyJobsDetails}></Row>
+              <Row key={job._id} job={job} refetch={refetch}></Row>
             ))}
           </tbody>
         </table>
