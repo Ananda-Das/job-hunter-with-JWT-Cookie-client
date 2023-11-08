@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "/images/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
+import DarkMode from "../Pages/DarkMode/DarkMode";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,8 +13,9 @@ const Navbar = () => {
   };
   const navLink = (
     <>
+    
       <li className="capitalize font-medium text-[#0F2239] text-base">
-        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[#0d6efd] underline font-bold" : "")} to="/">
+        <NavLink className={({ isActive, isPending }) => (isPending ? "pending" : isActive ? "text-[rgb(13,110,253)] underline font-bold" : "")} to="/">
           Home
         </NavLink>
       </li>
@@ -82,6 +84,7 @@ const Navbar = () => {
               <a className="text-3xl uppercase font-extrabold text-[#0d6efd]">Job Hunter</a>
             </div>
           </NavLink>
+          <DarkMode></DarkMode>
         </div>
         <div className="navbar-center hidden lg:flex navbar-end">
           <ul className="menu menu-horizontal px-1">{navLink}</ul>
