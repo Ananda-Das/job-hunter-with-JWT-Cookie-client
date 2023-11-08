@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import PageTitle from "../../components/PageTitle";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Row from "./Row";
-import axios from "axios";
+// import axios from "axios";
+import useAxiosHooks from "../../hooks/useAxiosHooks";
 // import { useQuery } from "@tanstack/react-query";
 
 const AppliedJobs = () => {
@@ -12,18 +13,23 @@ const AppliedJobs = () => {
 
   const [alljobs, setAllJobs] = useState([]);
 
-  const url = `http://localhost:5000/api/v1/my/applied/jobs?email=${user?.email}`;
-  // const url = `http://localhost:5000/api/v1/my/applied/jobs?email=dsf@fdsal.com`;
+  const axiosSecure = useAxiosHooks();
+
+  // const url = `http://localhost:5000/api/v1/my/applied/jobs?email=${user?.email}`;
+  const url = `/api/v1/my/applied/jobs?email=${user?.email}`;
+  // const url = `/api/v1/my/applied/jobs?email=fds@dfsa.com`;
+  
   useEffect(() => {
     // fetch(url)
     //   .then((res) => res.json())
     //   .then((data) => setAppliedJobs(data));
 
-      axios.get(url, { withCredentials: true }).then((res) => {
+  
+    axiosSecure.get(url)
+    .then((res) => {
         setAppliedJobs(res.data);
-        
       });
-  }, [url]);
+  }, [url, axiosSecure]);
 
   //for all jobs 
   useEffect(()=>{
