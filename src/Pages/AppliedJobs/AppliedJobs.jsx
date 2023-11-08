@@ -5,6 +5,7 @@ import Row from "./Row";
 // import axios from "axios";
 import useAxiosHooks from "../../hooks/useAxiosHooks";
 // import { useQuery } from "@tanstack/react-query";
+import { usePDF } from "react-to-pdf";
 
 const AppliedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -45,59 +46,45 @@ const AppliedJobs = () => {
     }
   };
 
+  //for pdf
+  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
+
   return (
-    <div>
+    <div ref={targetRef}>
       <PageTitle title="JobHunter | Applied" />
       <h1 className="text-5xl text-center font-bold underline">Your Applied Jobs: {appliedJobs.length}</h1>
-      <div>
-        {/* <form action="">
-        <section className="dropdown drop-shadow">
-          <option onClick={()=>handleFilterJobs('Part Time')}>Part Time</option>
-          <option onClick={()=>handleFilterJobs('Remote')}>Remote</option>
-          <option onClick={()=>handleFilterJobs('Hybrid')}>Part Time</option>
-        </section>
-        </form> */}
-        {/* <form>
-          <select className="select select-bordered w-full" name="brand">
-            <option>Select Brand</option>
-            <option onClick={() => handleFilterJobs("Part Time")}>Part Time</option>
-            <option value="Ford">Ford</option>
-            <option value="bmw">BMW</option>
-            <option value="Mercedes">Mercedes</option>
-            <option value="Tesla">Tesla</option>
-            <option value="Honda">Honda</option>
-          </select>
-        </form> */}
-        <details className="dropdown mb-32">
-          <summary className="m-1 btn">open or close</summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-            <li onClick={() => handleFilterJobs("all")}>
-              <a>All</a>
-            </li>
-            <li onClick={() => handleFilterJobs("Part Time")}>
-              <a>Part Time</a>
-            </li>
-            <li onClick={() => handleFilterJobs("Remote")}>
-              <a>Remote</a>
-            </li>
-            <li onClick={() => handleFilterJobs("Hybrid")}>
-              <a>Hybrid</a>
-            </li>
-            <li onClick={() => handleFilterJobs("On Site")}>
-              <a>On Site</a>
-            </li>
-          </ul>
-        </details>
+      <div className="flex items-center justify-around mt-10">
+        <div>
+          <details className="dropdown mb-10">
+            <summary className="m-1 btn">Click Here To Search</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+              <li onClick={() => handleFilterJobs("all")}>
+                <a>All</a>
+              </li>
+              <li onClick={() => handleFilterJobs("Part Time")}>
+                <a>Part Time</a>
+              </li>
+              <li onClick={() => handleFilterJobs("Remote")}>
+                <a>Remote</a>
+              </li>
+              <li onClick={() => handleFilterJobs("Hybrid")}>
+                <a>Hybrid</a>
+              </li>
+              <li onClick={() => handleFilterJobs("On Site")}>
+                <a>On Site</a>
+              </li>
+            </ul>
+          </details>
+        </div>
+        {/* for pdf test  */}
+        <div>
+          {/* <button>Download</button> */}
+          <button onClick={() => toPDF()}>Download PDF</button>
+          {/* <div ref={targetRef}>Content to be generated to PDF</div> */}
+        </div>
       </div>
 
-
-
-
-
-
-
-      
-      <div className="overflow-x-auto my-7">
+      <div className="overflow-x-auto my-7" >
         <table className="table table-zebra">
           {/* head */}
           <thead>
