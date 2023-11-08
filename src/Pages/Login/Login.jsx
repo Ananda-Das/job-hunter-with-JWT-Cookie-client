@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import PageTitle from "../../components/PageTitle";
+import axios from "axios";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -23,7 +24,14 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("You Successfully Loged In");
-        navigate(location?.state ? location.state : "/");
+        const user = { email };
+        //get access token
+        axios.post("http://localhost:5000/jwt", user, { withCredentials: true }).then((res) => {
+          console.log(res.data);
+          if (res.data.success) {
+            navigate(location?.state ? location.state : "/");
+          }
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -44,12 +52,10 @@ const Login = () => {
   };
   return (
     <div>
-      <PageTitle title="JobHunter | Login"/>
+      <PageTitle title="JobHunter | Login" />
       {/* login-start */}
       <div className="">
-        <h1 className="mx-auto mt-5 text-5xl text-center font-extrabold uppercase">
-          Sign In 
-        </h1>
+        <h1 className="mx-auto mt-5 text-5xl text-center font-extrabold uppercase">Sign In</h1>
         {/* form-start */}
         <form onSubmit={handleLogin} className="card-body text-center lg:w-1/2 md:h-3/4 mx-auto">
           <div className="form-control">
@@ -62,7 +68,13 @@ const Login = () => {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input type={showPassword ? "text" : "password"} placeholder="password" name="password" className="input input-bordered bg-[#F2F2F2]" required />{" "}
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="password"
+              name="password"
+              className="input input-bordered bg-[#F2F2F2]"
+              required
+            />{" "}
             <span
               className="absolute lg:left-[920px] left-[350px] lg:bottom-[320px] bottom-[210px] text-xl"
               onClick={() => setShowPassword(!showPassword)}

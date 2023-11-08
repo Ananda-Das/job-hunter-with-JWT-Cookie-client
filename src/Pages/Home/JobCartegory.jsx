@@ -5,19 +5,25 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import "react-tabs/style/react-tabs.css";
 import Job from "./Job";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const JobCartegory = () => {
   const [jobs, setjobs] = useState([]);
   const [displayJobs, setDisplayJobs] = useState([]);
 
+  const url = "http://localhost:5000/api/v1/all/jobs";
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/all/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setjobs(data);
-        setDisplayJobs(data);
-      });
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     // console.log(data);
+    //     setjobs(data);
+    //     setDisplayJobs(data);
+    //   });
+    axios.get(url, { withCredentials: true }).then((res) => {
+      setjobs(res.data);
+      setDisplayJobs(res.data);
+    });
   }, []);
 
   const handleFilterJobs = (filter) => {
@@ -37,7 +43,7 @@ const JobCartegory = () => {
   };
 
   return (
-    <div >
+    <div>
       <div className="flex justify-between items-center">
         <h2 className="text-4xl font-bold text-[#0F2239] my-5">Our Most Demanding Category </h2>
         <NavLink className="text-[#0859F7] font-medium text-2xl underline inline-block">
