@@ -67,12 +67,13 @@ const Routes = createBrowserRouter([
         ),
       },
       {
-        path: "updateJob",
+        path: "myjob/updateJob/:id",
         element: (
           <PrivateRoutes>
             <UpdateJobs></UpdateJobs>
           </PrivateRoutes>
         ),
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/jobs/${params.id}`),
       },
       {
         path: "myJob",

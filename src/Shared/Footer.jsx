@@ -4,7 +4,7 @@ import ScrollToTop from "react-scroll-to-top";
 const Footer = () => {
   return (
     
-    <div className="bg-[#0f2339] text-white max-w-[1280px] mx-auto">
+    <div className="bg-[#0f2339] text-white max-w-[1280px] mx-auto ">
       <footer className="footer p-10 ">
         <nav>
           <p className="text-base">It is a long established fact that is <br /> the read will been distractend there <br /> and readable an important content.</p>

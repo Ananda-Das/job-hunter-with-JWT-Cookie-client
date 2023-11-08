@@ -22,9 +22,11 @@ const SingleJob = () => {
     const form = new FormData(e.currentTarget);
     const name = user?.displayName;
     const email = user?.email;
+    const jobId = id;
+    // console.log(jobId);
     const cvlink = form.get("cvlink");
 
-    const applyjob = { name, email, cvlink };
+    const applyjob = { name, email, cvlink, jobId };
 
     //check date
     const currentDate = Date.now();
