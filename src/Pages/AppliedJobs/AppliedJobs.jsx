@@ -6,7 +6,7 @@ import Row from "./Row";
 import useAxiosHooks from "../../hooks/useAxiosHooks";
 // import { useQuery } from "@tanstack/react-query";
 import { usePDF } from "react-to-pdf";
-import { FaDownload } from 'react-icons/fa';
+import { FaDownload } from "react-icons/fa";
 
 const AppliedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -28,12 +28,12 @@ const AppliedJobs = () => {
     });
   }, [url, axiosSecure]);
 
-  const handleFilterJobs = (filter) => {
+  const handleJobs = (e) => {
+    const filter = e.target.value;
     if (filter === "all") {
       setDisplayJobs(appliedJobs);
     } else if (filter === "Hybrid") {
       const hybridJobs = appliedJobs.filter((job) => job.category === "Hybrid");
-      console.log(hybridJobs);
       setDisplayJobs(hybridJobs);
     } else if (filter === "Part Time") {
       const partTimeJobs = appliedJobs.filter((job) => job.category === "Part Time");
@@ -55,37 +55,32 @@ const AppliedJobs = () => {
       <PageTitle title="JobHunter | Applied" />
       <h1 className="text-5xl text-center font-bold underline">Your Applied Jobs: {appliedJobs.length}</h1>
       <div className="flex items-center justify-around mt-10">
-        <div>
-          <details className="dropdown mb-10">
-            <summary className="m-1 btn btn-info">Click Here To Search</summary>
-            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-              <li onClick={() => handleFilterJobs("all")}>
-                <a>All</a>
-              </li>
-              <li onClick={() => handleFilterJobs("Part Time")}>
-                <a>Part Time</a>
-              </li>
-              <li onClick={() => handleFilterJobs("Remote")}>
-                <a>Remote</a>
-              </li>
-              <li onClick={() => handleFilterJobs("Hybrid")}>
-                <a>Hybrid</a>
-              </li>
-              <li onClick={() => handleFilterJobs("On Site")}>
-                <a>On Site</a>
-              </li>
-            </ul>
-          </details>
+        <div className="flex gap-3 items-center">
+        <p className="text-base font-bold">Search Your Applied Jobs with Category: </p>
+        <select className="border pl-2 rounded-lg select-info w-full max-w-xs" onChange={handleJobs}>
+            <option value="all">All</option>
+            <option value="Part Time">Part Time</option>
+            <option value="Remote">Remote</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="On Site">On Site</option>
+          </select>
         </div>
+
+        {/* </div> */}
         {/* for pdf test  */}
         <div>
           {/* <button>Download</button> */}
-          <button className="btn btn-warning mb-10" onClick={() => toPDF()}>Download PDF <span className="inline-block"><FaDownload></FaDownload></span> </button>
+          <button className="btn btn-warning" onClick={() => toPDF()}>
+            Download PDF{" "}
+            <span className="inline-block">
+              <FaDownload></FaDownload>
+            </span>{" "}
+          </button>
           {/* <div ref={targetRef}>Content to be generated to PDF</div> */}
         </div>
       </div>
 
-      <div className="overflow-x-auto my-7" >
+      <div className="overflow-x-auto my-7">
         <table className="table table-zebra">
           {/* head */}
           <thead>
