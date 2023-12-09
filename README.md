@@ -4,6 +4,10 @@
 
 # https://job-hunter-188ab.web.app/
 
+# Server Side Repo Link
+
+[Server Side](https://github.com/Ananda-Das/job-hunter-with-JWT-Cookie-server.git)
+
 My Job Hunter project is used for Job listing Operations. To make this Project I have used React Js With Tailwind CSS Framework & Daiusyui. For The Authentication Part, I have used Firebase.
 
 
@@ -17,6 +21,7 @@ In this Project, a user can use some functionality. I am describing it Below:
 - A user can't apply for his job post & can't apply if the deadline is over.
 - After applying for a job user can see the applied job menu & download a pdf with the summary of his applied job.
 - User can also log in with their existing Google account.
+- User can toggle Dark mode and light mode.
 
 # Technology Used
 
